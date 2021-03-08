@@ -16,7 +16,7 @@ Whilst iOS Timezone is a front-end only app. It still relies on some core
 third-party libraries and functionality.
 
 ### [React](https://reactjs.org/)
-[React](https://reactjs.org/) is the JavaScript library which powers the majority
+React is the JavaScript library which powers the majority
 of the front-end and controls a lot of the UI you see on the page.
 
 ### [Date-fns](https://date-fns.org/)
