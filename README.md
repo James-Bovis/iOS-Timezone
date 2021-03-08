@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e25a1ce7-5940-4489-a70f-0250611e7202/deploy-status)](https://app.netlify.com/sites/ios-timezone/deploys)
+
 # iOS Timezone
 This is a small React app that displays the local time of worlds timezones in an
 iOS-style analogue clock. Much like you would find on your iPhone or other
