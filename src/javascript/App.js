@@ -97,6 +97,14 @@ const App = (): React.Node => {
           </a>
           { `, ` }
           <a
+            href='https://recoiljs.org/'
+            target='_blank'
+            rel='noreferrer'
+          >
+            { `Recoil`}
+          </a>
+          { `, ` }
+          <a
             href='https://reactjs.org/'
             target='_blank'
             rel='noreferrer'
