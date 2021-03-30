@@ -2,11 +2,26 @@ import { atom, selector } from 'recoil'
 import { utcToZonedTime } from 'date-fns-tz'
 import { getHours } from 'date-fns'
 
+const localStorageEffect = (key) => ({ setSelf, onSet }) => {
+  const savedValue = localStorage.getItem(key)
+
+  if (savedValue != null) {
+    setSelf(JSON.parse(savedValue));
+  }
+
+  onSet(newValue => {
+    localStorage.setItem(key, JSON.stringify(newValue));
+  })
+}
+
 export const darkModeOn = atom({
   key: 'darkModeState',
   default:
     window.matchMedia &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches
+    window.matchMedia('(prefers-color-scheme: dark)').matches,
+  effects_UNSTABLE: [
+    localStorageEffect('darkMode')
+  ]
 })
 
 export const currentTime = atom({
