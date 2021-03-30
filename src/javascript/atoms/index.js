@@ -34,7 +34,10 @@ export const selectedTimeZone = atom({
   default: {
     value: Intl.DateTimeFormat().resolvedOptions().timeZone,
     label: 'London'
-  }
+  },
+  effects_UNSTABLE: [
+    localStorageEffect('selectedTimeZone')
+  ]
 })
 
 // Selectors
