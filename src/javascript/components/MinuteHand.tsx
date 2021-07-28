@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react'
 import styled from 'styled-components'
 import { useRecoilValue } from 'recoil'
@@ -22,7 +20,9 @@ const MinutesWrapper = styled.div`
   left: 0;
 `
 
-const Hand = styled.div`
+const Hand = styled.div<{
+  darkMode: boolean
+}>`
   height: 40%;
   background: ${props => props.darkMode
     ? White
@@ -52,7 +52,7 @@ const Hand = styled.div`
   }
 `
 
-const MinuteHand = (): React.Node => {
+const MinuteHand = (): React.ReactElement => {
   const time = useRecoilValue(currentTime)
   const seconds = getSeconds(time)
   const minutes = getMinutes(time)

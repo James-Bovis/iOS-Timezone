@@ -1,5 +1,3 @@
-// @flow
-
 import type { TimeZone } from './'
 
 const americaTimeZones: Array<TimeZone> = [

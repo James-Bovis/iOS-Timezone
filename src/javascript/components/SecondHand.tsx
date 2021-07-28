@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react'
 import styled from 'styled-components'
 import { useRecoilValue } from 'recoil'
@@ -57,7 +55,7 @@ const SecondsWrapper = styled.div`
   };
 `
 
-const SecondHand = (): React.Node => {
+const SecondHand = (): React.ReactElement => {
   const seconds = getSeconds(useRecoilValue(currentTime))
   const milliseconds = getMilliseconds(useRecoilValue(currentTime))
 

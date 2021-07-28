@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react'
 import styled from 'styled-components'
 import { useRecoilValue } from 'recoil'
@@ -10,11 +8,9 @@ import { darkModeOn } from '../../atoms'
 // Utils
 import { Black, White, Orange, Grey } from '../../utils/Colours'
 
-type Props = {|
-  children: React.Node
-|}
-
-const ParagraphWrapper = styled.p`
+const ParagraphWrapper = styled.p<{
+  darkMode: boolean
+}>`
   font-size: 20px;
   transition: color .25s ease;
   color:${props =>
@@ -34,7 +30,7 @@ const ParagraphWrapper = styled.p`
   }
 `
 
-const Paragraph = ({ children }: Props): React.Node => {
+const Paragraph: React.FC = ({ children }): React.ReactElement => {
   const darkMode = useRecoilValue(darkModeOn)
 
   return (
