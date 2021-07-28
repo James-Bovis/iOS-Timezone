@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react'
 import Select from 'react-select'
 import styled from 'styled-components'
@@ -15,7 +13,7 @@ import { allTimeZones, groupedTimeZones } from '../data'
 import { White, Grey } from '../utils/Colours'
 
 const customStyles = {
-  control: (provided, state) => ({
+  control: (provided: any, state: any) => ({
     ...provided,
     backgroundColor: Grey.light,
     boxShadow: 'none',
@@ -29,18 +27,18 @@ const customStyles = {
       border: 0,
     }
   }),
-  singleValue: (provided) => ({
+  singleValue: (provided: any) => ({
     ...provided,
     color: White
   }),
-  input: (provided) => ({
+  input: (provided: any) => ({
     ...provided,
     color: White
   }),
   indicatorSeparator: () => ({
     display: 'none'
   }),
-  groupHeading: (provided) => ({
+  groupHeading: (provided: any) => ({
     ...provided,
     background: Grey.dark,
     padding: '20px',
@@ -49,14 +47,14 @@ const customStyles = {
     fontSize: '18px',
     borderBottom: `1px solid ${Grey.light}`
   }),
-  group: (provided) => ({
+  group: (provided: any) => ({
     ...provided,
     background: Grey.medium,
     paddingTop: 0,
     paddingBottom: 0,
     textAlign: 'left'
   }),
-  option: (provided, state) => ({
+  option: (provided: any, state: any) => ({
     ...provided,
     color: White,
     borderBottom: `1px solid ${Grey.light}`,
@@ -68,16 +66,16 @@ const customStyles = {
       cursor: 'pointer'
     }
   }),
-  noOptionsMessage: (provided) => ({
+  noOptionsMessage: (provided: any) => ({
     ...provided,
     background: Grey.medium,
     color: White
   }),
-  menu: (provided) => ({
+  menu: (provided: any) => ({
     ...provided,
     background: 'none',
   }),
-  menuList: (provided) => ({
+  menuList: (provided: any) => ({
     ...provided,
     paddingTop: 0,
     borderRadius: '4px',
@@ -88,7 +86,7 @@ const SelectTimeZoneWrapper = styled.div`
   margin-top: 0
 `
 
-const SelectTimeZone = (): React.Node => {
+const SelectTimeZone = (): React.ReactElement => {
   const currentTimezone = useRecoilValue(selectedTimeZone)
   const setSelectedTimezone = useSetRecoilState(selectedTimeZone)
 

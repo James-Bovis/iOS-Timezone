@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react'
 import styled from 'styled-components'
 import { useRecoilState } from 'recoil'
@@ -10,7 +8,9 @@ import { Green, White, Black } from '../utils/Colours'
 // Atoms
 import { darkModeOn } from '../atoms'
 
-const DarkMode = styled.button`
+const DarkMode = styled.button<{
+  darkMode: boolean
+}>`
   width: 60px;
   height: 30px;
   background: ${props => props.darkMode ? Green : '#E5E5E5'};
@@ -72,7 +72,7 @@ const DarkModeWrapper = styled.div`
   right: 15px;
 `
 
-const DarkModeToggle = (): React.Element<typeof DarkMode> => {
+const DarkModeToggle = (): React.ReactElement => {
   const [darkMode, setDarkMode ] = useRecoilState(darkModeOn)
 
   return (

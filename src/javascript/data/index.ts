@@ -1,5 +1,3 @@
-// @flow
-
 // Time Zones
 import africaTimeZones from './africaTimeZones'
 import americaTimeZones from './americaTimeZones'

@@ -1,5 +1,3 @@
-// @flow
-
 const Black = '#1c1c1e'
 const White = '#fff'
 const Orange = '#f6950d'

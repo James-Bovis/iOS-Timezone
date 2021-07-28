@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react'
 import styled from 'styled-components'
 import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil'
@@ -18,7 +16,9 @@ import { Clock, ClockFaceWrapper } from './components/Clock'
 import { SelectTimeZone, SelectTimeZoneWrapper } from './components/SelectTimeZone'
 import DarkModeToggle from './components/DarkModeToggle'
 
-const Wrapper = styled.section`
+const Wrapper = styled.section<{
+  darkMode: boolean
+}>`
   background:${props =>
     props.darkMode
       ? Black
@@ -43,7 +43,7 @@ const Container = styled.section`
   }
 `
 
-const App = (): React.Node => {
+const App = (): React.ReactElement => {
   const [darkMode, setDarkMode ] = useRecoilState(darkModeOn)
   const setCurrentTime = useSetRecoilState(currentTime)
   const selectedTimeZoneValue = useRecoilValue(selectedTimeZone)

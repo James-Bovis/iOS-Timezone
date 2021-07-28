@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react'
 import styled from 'styled-components'
 import { useRecoilValue } from 'recoil'
@@ -19,7 +17,9 @@ import HourHand from './HourHand'
 import clockFaceDay from '../../images/ios_clock.svg'
 import clockFaceNight from '../../images/ios_clock--white.svg'
 
-const ClockFace = styled.div`
+const ClockFace = styled.div<{
+  darkMode: boolean
+}>`
   background-color: ${props => props.darkMode
     ? Black
     : White
@@ -68,7 +68,7 @@ const ClockFaceWrapper = styled.div`
   margin: auto;
 `
 
-const Clock = (): React.Node => {
+const Clock = (): React.ReactElement => {
   const isNight = useRecoilValue(isCurrentTimeZoneNight)
 
   return (

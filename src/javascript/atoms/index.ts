@@ -2,14 +2,14 @@ import { atom, selector } from 'recoil'
 import { utcToZonedTime } from 'date-fns-tz'
 import { getHours } from 'date-fns'
 
-const localStorageEffect = (key) => ({ setSelf, onSet }) => {
+const localStorageEffect = (key: string) => ({ setSelf, onSet }: { setSelf: (any: any) => void, onSet: (any: any) => void }) => {
   const savedValue = localStorage.getItem(key)
 
   if (savedValue != null) {
     setSelf(JSON.parse(savedValue));
   }
 
-  onSet(newValue => {
+  onSet((newValue: any) => {
     localStorage.setItem(key, JSON.stringify(newValue));
   })
 }

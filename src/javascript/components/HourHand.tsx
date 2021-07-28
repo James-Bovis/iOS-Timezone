@@ -1,5 +1,3 @@
-// @flow
-
 import * as React from 'react'
 import styled from 'styled-components'
 import { useRecoilValue } from 'recoil'
@@ -23,7 +21,9 @@ const HoursWrapper = styled.div`
   left: 0;
 `
 
-const Hand = styled.div`
+const Hand = styled.div<{
+  darkMode: boolean
+}>`
   height: 30%;
   background: ${props => props.darkMode
     ? White
@@ -53,7 +53,7 @@ const Hand = styled.div`
   }
 `
 
-const HourHand = (): React.Node => {
+const HourHand = (): React.ReactElement => {
   const localTime = utcToZonedTime(useRecoilValue(currentTime), useRecoilValue(selectedTimeZone).value)
   const hours = getHours(localTime)
   const minutes = getMinutes(localTime)
