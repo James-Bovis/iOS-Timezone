@@ -48,7 +48,7 @@ const australiaTimeZones: Array<TimeZone> = [
   {
     value: 'Australia/Sydney',
     label: 'Sydney'
-  },
+  }
 ]
 
 export default australiaTimeZones

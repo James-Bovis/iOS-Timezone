@@ -10,12 +10,12 @@ import europeTimeZones from './europeTimeZones'
 import indianTimeZones from './indianTimeZones'
 
 type TimeZone = {
-  value: string,
+  value: string
   label: string
 }
 
 type GroupedTimeZones = {
-  label: string,
+  label: string
   options: Array<TimeZone>
 }
 
@@ -70,13 +70,6 @@ const allTimeZones: Array<TimeZone> = [
   ...pacificTimeZones
 ]
 
+export type { TimeZone, GroupedTimeZones }
 
-export type {
-  TimeZone,
-  GroupedTimeZones
-}
-
-export {
-  allTimeZones,
-  groupedTimeZones
-}
+export { allTimeZones, groupedTimeZones }

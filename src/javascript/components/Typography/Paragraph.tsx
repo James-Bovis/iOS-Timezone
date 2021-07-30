@@ -12,36 +12,20 @@ const ParagraphWrapper = styled.p<{
   darkMode: boolean
 }>`
   font-size: 20px;
-  transition: color .25s ease;
-  color:${props =>
-    props.darkMode
-      ? White
-      : Black
-  };
+  transition: color 0.25s ease;
+  color: ${(props) => (props.darkMode ? White : Black)};
   line-height: 1.5;
 
   a {
-    transition: color .25s ease;
-    color: ${props =>
-    props.darkMode
-      ? Orange
-      : Grey.dark
-    };
+    transition: color 0.25s ease;
+    color: ${(props) => (props.darkMode ? Orange : Grey.dark)};
   }
 `
 
 const Paragraph: React.FC = ({ children }): React.ReactElement => {
   const darkMode = useRecoilValue(darkModeOn)
 
-  return (
-    <ParagraphWrapper darkMode={darkMode}>
-      { children }
-    </ParagraphWrapper>
-  )
-
+  return <ParagraphWrapper darkMode={darkMode}>{children}</ParagraphWrapper>
 }
 
-export {
-  Paragraph
-}
-
+export { Paragraph }

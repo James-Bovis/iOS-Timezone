@@ -36,7 +36,7 @@ const atlanticTimeZones: Array<TimeZone> = [
   {
     value: 'Atlantic/Stanley',
     label: 'Stanley'
-  },
+  }
 ]
 
 export default atlanticTimeZones

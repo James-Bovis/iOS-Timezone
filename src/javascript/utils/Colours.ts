@@ -9,10 +9,4 @@ const Grey = {
   dark: '#1c1c1d'
 }
 
-export {
-  Black,
-  White,
-  Orange,
-  Grey,
-  Green
-}
+export { Black, White, Orange, Grey, Green }

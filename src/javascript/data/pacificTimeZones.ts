@@ -144,7 +144,7 @@ const pacificTimeZones: Array<TimeZone> = [
   {
     value: 'Pacific/Wallis',
     label: 'Wallis'
-  },
+  }
 ]
 
 export default pacificTimeZones

@@ -304,7 +304,7 @@ const asiaTimeZones: Array<TimeZone> = [
   {
     value: 'Asia/Yerevan',
     label: 'Yerevan'
-  },
+  }
 ]
 
 export default asiaTimeZones

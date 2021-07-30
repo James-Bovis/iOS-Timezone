@@ -20,15 +20,9 @@ import clockFaceNight from '../../images/ios_clock--white.svg'
 const ClockFace = styled.div<{
   darkMode: boolean
 }>`
-  background-color: ${props => props.darkMode
-    ? Black
-    : White
-  };
-  background-image: url(${props => props.darkMode
-    ? clockFaceNight
-    : clockFaceDay
-    }
-  );
+  background-color: ${(props) => (props.darkMode ? Black : White)};
+  background-image: url(${(props) =>
+    props.darkMode ? clockFaceNight : clockFaceDay});
   background-repeat: no-repeat;
   background-position: center;
   background-size: 88%;
@@ -37,17 +31,14 @@ const ClockFace = styled.div<{
   margin: auto;
   width: 230px;
   position: relative;
-  transition: background-color .25s ease;
+  transition: background-color 0.25s ease;
 
   /*
    * Create the small black circle which sits in the center of the clock face
    * itself. This circle is separate from the hands themselves.
    */
-  &:before{
-    background: ${props => props.darkMode
-      ? White
-      : Black
-    };
+  &:before {
+    background: ${(props) => (props.darkMode ? White : Black)};
     border-radius: 50%;
     content: '';
     position: absolute;
@@ -56,8 +47,8 @@ const ClockFace = styled.div<{
     height: 8%;
     width: 8%;
     transform: translate(-50%, -50%);
-    z-index: 0
-  };
+    z-index: 0;
+  }
 `
 
 const ClockFaceWrapper = styled.div`
@@ -82,8 +73,4 @@ const Clock = (): React.ReactElement => {
   )
 }
 
-export {
-  Clock,
-  ClockFace,
-  ClockFaceWrapper
-}
+export { Clock, ClockFace, ClockFaceWrapper }

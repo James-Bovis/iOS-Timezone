@@ -520,7 +520,7 @@ const americaTimeZones: Array<TimeZone> = [
   {
     value: 'America/Yellowknife',
     label: 'Yellowknife'
-     }
+  }
 ]
 
 export default americaTimeZones
