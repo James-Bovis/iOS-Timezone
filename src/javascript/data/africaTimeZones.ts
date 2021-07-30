@@ -80,7 +80,7 @@ const africaTimeZones: Array<TimeZone> = [
   {
     value: 'Africa/Windhoek',
     label: 'Windhoek'
-  },
+  }
 ]
 
 export default africaTimeZones

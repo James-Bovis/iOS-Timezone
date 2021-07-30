@@ -40,7 +40,7 @@ const antarticaTimeZones: Array<TimeZone> = [
   {
     value: 'Antarctica/Vostok',
     label: 'Vostok'
-     }
+  }
 ]
 
 export default antarticaTimeZones

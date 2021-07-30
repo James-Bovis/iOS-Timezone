@@ -24,7 +24,7 @@ const customStyles = {
 
     ':hover': {
       outline: 0,
-      border: 0,
+      border: 0
     }
   }),
   singleValue: (provided: any) => ({
@@ -73,47 +73,38 @@ const customStyles = {
   }),
   menu: (provided: any) => ({
     ...provided,
-    background: 'none',
+    background: 'none'
   }),
   menuList: (provided: any) => ({
     ...provided,
     paddingTop: 0,
-    borderRadius: '4px',
+    borderRadius: '4px'
   })
 }
 
 const SelectTimeZoneWrapper = styled.div`
-  margin-top: 0
+  margin-top: 0;
 `
 
 const SelectTimeZone = (): React.ReactElement => {
   const currentTimezone = useRecoilValue(selectedTimeZone)
   const setSelectedTimezone = useSetRecoilState(selectedTimeZone)
 
-  const defaultValue =
-    allTimeZones.find((timezone) => timezone.value === currentTimezone.value)
+  const defaultValue = allTimeZones.find(
+    (timezone) => timezone.value === currentTimezone.value
+  )
 
   return (
     <SelectTimeZoneWrapper>
       <Select
         options={groupedTimeZones}
-        onChange={selectedOption => setSelectedTimezone(selectedOption)}
+        onChange={(selectedOption) => setSelectedTimezone(selectedOption)}
         defaultValue={defaultValue}
         styles={customStyles}
-        formatGroupLabel={
-          (data) => (
-            <p style={{ margin: 0}}>
-              { data.label }
-            </p>
-          )
-        }
+        formatGroupLabel={(data) => <p style={{ margin: 0 }}>{data.label}</p>}
       />
     </SelectTimeZoneWrapper>
   )
 }
 
-export {
-  SelectTimeZone,
-  SelectTimeZoneWrapper
-}
-
+export { SelectTimeZone, SelectTimeZoneWrapper }

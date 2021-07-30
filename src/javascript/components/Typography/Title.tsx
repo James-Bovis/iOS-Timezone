@@ -8,31 +8,21 @@ import { darkModeOn } from '../../atoms'
 // Utils
 import { Black, White } from '../../utils/Colours'
 
-type Heading =
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
+type Heading = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 
 type Props = {
-  level?: Heading,
+  level?: Heading
   fontSize?: number
 }
 
 const TitleWrapper = styled.h1<{
-  darkMode: boolean,
+  darkMode: boolean
   fontSize: number | undefined
 }>`
   margin: 0;
-  font-size: ${props => props.fontSize}px;
-  transition: color .25s ease;
-  color:${props =>
-    props.darkMode
-      ? White
-      : Black
-  };
+  font-size: ${(props) => props.fontSize}px;
+  transition: color 0.25s ease;
+  color: ${(props) => (props.darkMode ? White : Black)};
 `
 
 const Title: React.FC<Props> = ({
@@ -50,12 +40,8 @@ const Title: React.FC<Props> = ({
     case 'h5':
     case 'h6': {
       return (
-        <TitleWrapper
-          as={level}
-          darkMode={darkMode}
-          fontSize={fontSize}
-        >
-          { children }
+        <TitleWrapper as={level} darkMode={darkMode} fontSize={fontSize}>
+          {children}
         </TitleWrapper>
       )
     }
@@ -65,6 +51,4 @@ const Title: React.FC<Props> = ({
   }
 }
 
-export {
-  Title
-}
+export { Title }

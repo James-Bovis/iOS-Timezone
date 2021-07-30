@@ -1,10 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { useRecoilValue } from 'recoil'
-import {
-  getSeconds,
-  getMilliseconds
-} from 'date-fns/fp'
+import { getSeconds, getMilliseconds } from 'date-fns/fp'
 
 // Atoms
 import { currentTime } from '../atoms'
@@ -29,7 +26,7 @@ const SecondsWrapper = styled.div`
   bottom: 0;
   left: 0;
 
-  &:before{
+  &:before {
     background: ${Orange};
     border-radius: 50%;
     content: '';
@@ -39,9 +36,9 @@ const SecondsWrapper = styled.div`
     height: 5%;
     width: 5%;
     transform: translate(-50%, -50%);
-  };
+  }
 
-  &:after{
+  &:after {
     background: ${White};
     border-radius: 50%;
     content: '';
@@ -51,15 +48,18 @@ const SecondsWrapper = styled.div`
     height: 2%;
     width: 2%;
     transform: translate(-50%, -50%);
-    z-index: 10
-  };
+    z-index: 10;
+  }
 `
 
 const SecondHand = (): React.ReactElement => {
   const seconds = getSeconds(useRecoilValue(currentTime))
   const milliseconds = getMilliseconds(useRecoilValue(currentTime))
 
-  const secondsToDegrees = ((seconds + milliseconds / 1000) / 60 * 360).toFixed(1)
+  const secondsToDegrees = (
+    ((seconds + milliseconds / 1000) / 60) *
+    360
+  ).toFixed(1)
 
   return (
     <SecondsWrapper
@@ -73,4 +73,3 @@ const SecondHand = (): React.ReactElement => {
 }
 
 export default SecondHand
-

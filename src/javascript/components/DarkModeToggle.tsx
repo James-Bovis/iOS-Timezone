@@ -13,26 +13,28 @@ const DarkMode = styled.button<{
 }>`
   width: 60px;
   height: 30px;
-  background: ${props => props.darkMode ? Green : '#E5E5E5'};
+  background: ${(props) => (props.darkMode ? Green : '#E5E5E5')};
   border-radius: 30px;
   position: relative;
-  transition: background .25s ease;
+  transition: background 0.25s ease;
   border: 0;
   display: flex;
   align-items: center;
   font-size: 16px;
 
   :before {
-    content: "Dark mode ${props => props.darkMode ? 'on' : 'off'}";
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    content: 'Dark mode ${(props) => (props.darkMode ? 'on' : 'off')}';
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
 
     position: absolute;
     left: 0;
     transform: translateX(-100%);
     white-space: nowrap;
     opacity: 0;
-    color: ${props => props.darkMode ? White : Black};
-    transition: opacity .25s ease, color .25s ease, transform .25s ease;
+    color: ${(props) => (props.darkMode ? White : Black)};
+    transition: opacity 0.25s ease, color 0.25s ease, transform 0.25s ease;
     pointer-events: none;
 
     -webkit-font-smoothing: antialiased;
@@ -46,14 +48,14 @@ const DarkMode = styled.button<{
     position: absolute;
     top: 5px;
     right: 5px;
-    transform: translateX(${props => props.darkMode ? '0' : '-30px'});
+    transform: translateX(${(props) => (props.darkMode ? '0' : '-30px')});
     background: ${White};
-    transition: transform .25s ease;
+    transition: transform 0.25s ease;
     border-radius: 30px;
   }
 
   :focus {
-    outline: 0
+    outline: 0;
   }
 
   :hover {
@@ -61,7 +63,7 @@ const DarkMode = styled.button<{
 
     :before {
       opacity: 1;
-      transform: translateX(calc(-100% -  10px));
+      transform: translateX(calc(-100% - 10px));
     }
   }
 `
@@ -73,7 +75,7 @@ const DarkModeWrapper = styled.div`
 `
 
 const DarkModeToggle = (): React.ReactElement => {
-  const [darkMode, setDarkMode ] = useRecoilState(darkModeOn)
+  const [darkMode, setDarkMode] = useRecoilState(darkModeOn)
 
   return (
     <DarkModeWrapper>
@@ -86,4 +88,3 @@ const DarkModeToggle = (): React.ReactElement => {
 }
 
 export default DarkModeToggle
-

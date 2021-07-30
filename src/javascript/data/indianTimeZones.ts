@@ -32,7 +32,7 @@ const indianTimeZones: Array<TimeZone> = [
   {
     value: 'Indian/Reunion',
     label: 'Reunion'
-  },
+  }
 ]
 
 export default indianTimeZones

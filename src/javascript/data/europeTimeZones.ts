@@ -184,7 +184,7 @@ const euroupeTimeZones: Array<TimeZone> = [
   {
     value: 'Europe/Zurich',
     label: 'Zurich'
-  },
+  }
 ]
 
 export default euroupeTimeZones

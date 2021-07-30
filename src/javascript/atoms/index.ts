@@ -2,26 +2,32 @@ import { atom, selector } from 'recoil'
 import { utcToZonedTime } from 'date-fns-tz'
 import { getHours } from 'date-fns'
 
-const localStorageEffect = (key: string) => ({ setSelf, onSet }: { setSelf: (any: any) => void, onSet: (any: any) => void }) => {
-  const savedValue = localStorage.getItem(key)
+const localStorageEffect =
+  (key: string) =>
+  ({
+    setSelf,
+    onSet
+  }: {
+    setSelf: (any: any) => void
+    onSet: (any: any) => void
+  }) => {
+    const savedValue = localStorage.getItem(key)
 
-  if (savedValue != null) {
-    setSelf(JSON.parse(savedValue));
+    if (savedValue != null) {
+      setSelf(JSON.parse(savedValue))
+    }
+
+    onSet((newValue: any) => {
+      localStorage.setItem(key, JSON.stringify(newValue))
+    })
   }
-
-  onSet((newValue: any) => {
-    localStorage.setItem(key, JSON.stringify(newValue));
-  })
-}
 
 export const darkModeOn = atom({
   key: 'darkModeState',
   default:
     window.matchMedia &&
     window.matchMedia('(prefers-color-scheme: dark)').matches,
-  effects_UNSTABLE: [
-    localStorageEffect('darkMode')
-  ]
+  effects_UNSTABLE: [localStorageEffect('darkMode')]
 })
 
 export const currentTime = atom({
@@ -35,9 +41,7 @@ export const selectedTimeZone = atom({
     value: Intl.DateTimeFormat().resolvedOptions().timeZone,
     label: 'London'
   },
-  effects_UNSTABLE: [
-    localStorageEffect('selectedTimeZone')
-  ]
+  effects_UNSTABLE: [localStorageEffect('selectedTimeZone')]
 })
 
 // Selectors
@@ -49,17 +53,17 @@ export const isCurrentTimeZoneNight = selector({
     const time = get(currentTime)
     const localTime = utcToZonedTime(time, timeZone.value)
 
-    return (
-      getHours(localTime) >= 18 ||
-      getHours(localTime) <= 6
-    )
-  },
-});
+    return getHours(localTime) >= 18 || getHours(localTime) <= 6
+  }
+})
 
 export const currentTimeToSelectedTimeZone = selector({
   key: 'currentTimeToSelectedTimeZone',
-  get: ({ get}) => {
-    const localTime = utcToZonedTime(get(currentTime), get(selectedTimeZone).value)
+  get: ({ get }) => {
+    const localTime = utcToZonedTime(
+      get(currentTime),
+      get(selectedTimeZone).value
+    )
 
     return localTime
   }
